@@ -9,6 +9,7 @@ import com.moataz.userdependencies.repos.RoleRepository;
 import com.moataz.userdependencies.repos.UserRepository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 
 @Transactional
@@ -46,5 +47,10 @@ public class UserServiceImpl implements UserService{
         Role r = roleRep.findByRole(rolename);
         usr.getRoles().add(r);
         return usr;
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userRep.findAll();
     }
 }
